@@ -1,3 +1,9 @@
+/* always open on the two featured videos */
+function toTop() { window.scrollTo(0, 0); }
+toTop();
+window.addEventListener("load", toTop);
+window.addEventListener("pageshow", toTop);
+
 (function () {
   /* intro: once per visit, tap/click/key to skip */
   var intro = document.querySelector(".intro");
@@ -7,13 +13,14 @@
     var finish = function () {
       if (ended) return; ended = true;
       intro.classList.add("done");
+      toTop();
       document.body.style.overflow = "";
       setTimeout(function () { intro.remove(); }, 400);
     };
     try { sessionStorage.setItem("mc-intro", "1"); } catch (e) {}
     intro.addEventListener("click", finish);
     document.addEventListener("keydown", finish, { once: true });
-    setTimeout(function () { intro.classList.add("reveal"); }, 2250);
+    setTimeout(function () { toTop(); intro.classList.add("reveal"); }, 2250);
     setTimeout(finish, 2950);
   } else if (intro) { intro.remove(); }
 })();
