@@ -86,18 +86,30 @@
   });
   $(".play-all").addEventListener("click", function () { openPlayer(mm.chapters, 0, true); });
 
-  fill('[data-list="eybl"]', S.eybl);
-  fill('[data-list="events"]', S.events);
-
-  var tp = S.turkishParty;
-  $(".tp-title").textContent = tp.title;
-  fill('[data-list="turkish"]', [tp.video]);
-  var ph = $(".photos");
-  (tp.photos || []).forEach(function (src) {
-    var im = document.createElement("img");
-    im.loading = "lazy"; im.src = src; im.alt = tp.title;
-    im.addEventListener("click", function () { window.open(src, "_blank"); });
-    ph.appendChild(im);
+  fill('[data-list="sports"]', S.sports);
+  var lines = $(".event-lines");
+  S.events.forEach(function (ev) {
+    var wrap = document.createElement("div");
+    wrap.className = "event-line";
+    var h = document.createElement("h3");
+    h.textContent = ev.title;
+    wrap.appendChild(h);
+    var g = document.createElement("div");
+    g.className = "grid";
+    ev.videos.forEach(function (it, i) { g.appendChild(card(it, ev.videos, i)); });
+    wrap.appendChild(g);
+    if (ev.photos && ev.photos.length) {
+      var ph = document.createElement("div");
+      ph.className = "photos";
+      ev.photos.forEach(function (src) {
+        var im = document.createElement("img");
+        im.loading = "lazy"; im.src = src; im.alt = ev.title;
+        im.addEventListener("click", function () { window.open(src, "_blank"); });
+        ph.appendChild(im);
+      });
+      wrap.appendChild(ph);
+    }
+    lines.appendChild(wrap);
   });
 
   /* ---------- player ---------- */
