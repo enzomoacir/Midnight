@@ -13,6 +13,12 @@ window.SITE = {
   phone: "+41 78 333 29 73",
   email: "",
 
+  /* The two pieces shown first when the site opens */
+  featured: [
+    { file: "lanciano-1",   title: "Vibas vs Lanciano | Final Chapter" },
+    { file: "event-dune-1", title: "Dune Bar | Reel" }
+  ],
+
   miniMovie: {
     title: "Vibas Basket vs Uni Lanciano Game | Mini Movie",
     intro: "One game, told in three chapters. Watch it in order.",

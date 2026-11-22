@@ -70,6 +70,21 @@
     list.forEach(function (it, i) { box.appendChild(card(it, list, i)); });
   }
 
+  /* featured: best two pieces, first thing on the page */
+  var sc = $(".showcase");
+  (S.featured || []).forEach(function (it, i) {
+    var el = document.createElement("div");
+    el.className = "show";
+    el.tabIndex = 0;
+    el.setAttribute("role", "button");
+    el.innerHTML = '<video muted loop playsinline autoplay preload="metadata" poster="media/' + it.file + '.jpg" src="media/' + it.file + '.mp4"></video>' +
+      '<span class="show-text"><span class="eyebrow">Featured</span><span class="show-title"></span><span class="show-cta">&#9654;&nbsp; Watch with sound</span></span>';
+    $(".show-title", el).textContent = it.title;
+    el.addEventListener("click", function () { openPlayer(S.featured, i); });
+    el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openPlayer(S.featured, i); } });
+    sc.appendChild(el);
+  });
+
   /* mini movie */
   var mm = S.miniMovie;
   $(".mm-title").textContent = mm.title;
