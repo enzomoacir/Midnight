@@ -17,9 +17,9 @@ window.SITE = {
     title: "Vibas Basket vs Uni Lanciano Game | Mini Movie",
     intro: "One game, told in three chapters. Watch it in order.",
     chapters: [
-      { file: "lanciano-1", title: "Chapter 1" },
-      { file: "lanciano-2", title: "Chapter 2" },
-      { file: "lanciano-3", title: "Chapter 3" }
+      { file: "lanciano-2", title: "Chapter 1" },
+      { file: "lanciano-3", title: "Chapter 2" },
+      { file: "lanciano-1", title: "Chapter 3" }
     ]
   },
 

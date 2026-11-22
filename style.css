@@ -52,7 +52,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* feature */
 .feature{padding-top:72px}
 .feature .mm-title{max-width:900px;margin-left:auto;margin-right:auto}
-.chapters{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:14px;align-items:stretch;margin-bottom:36px}
+.chapters{display:grid;grid-template-columns:1fr 1fr 1.6fr;gap:14px;align-items:stretch;margin-bottom:36px}
 .chapter .thumb{aspect-ratio:auto;height:clamp(380px,40vw,560px)}
 .chapter{display:flex;flex-direction:column;text-align:left}
 .chapter .num{font-family:var(--head);font-size:13px;letter-spacing:.24em;color:var(--accent);text-transform:uppercase;margin-top:12px}
@@ -116,9 +116,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .section{padding:72px 16px 24px}
   .grid,.grid.five{grid-template-columns:repeat(2,1fr);gap:10px}
   .chapters{grid-template-columns:1fr 1fr;gap:10px}
-  .chapter:first-child{grid-column:1/-1}
+  .chapter:last-child{grid-column:1/-1}
   .chapter .thumb{height:auto;aspect-ratio:9/16}
-  .chapter:first-child .thumb{aspect-ratio:16/9}
+  .chapter:last-child .thumb{aspect-ratio:16/9}
   .bio{grid-template-columns:1fr;gap:24px;text-align:center}
   .bio-logo{max-width:200px;margin:0 auto}
   .foot{padding:24px 16px 32px}
