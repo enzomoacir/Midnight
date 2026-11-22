@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Midnight Collective | Sports &amp; Event Videography</title>
+<meta name="description" content="Midnight Collective. Sports and event videography: game films, player features, interviews and aftermovies.">
+<meta property="og:title" content="Midnight Collective">
+<meta property="og:description" content="Sports and event videography.">
+<meta property="og:image" content="assets/og.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#050505">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <nav class="nav">
+    <a href="#mini-movie">Mini Movie</a>
+    <a href="#eybl">EYBL</a>
+    <a href="#events">Events</a>
+    <a href="#turkish-party">Turkish Party</a>
+  </nav>
+  <a class="brand" href="#top" aria-label="Midnight Collective home"><img src="assets/logo-600.png" alt="Midnight Collective"></a>
+  <nav class="nav right">
+    <a href="#bio">Bio</a>
+    <a href="#contact">Contact</a>
+    <a class="ig-link" href="#" target="_blank" rel="noopener">Instagram</a>
+  </nav>
+  <button class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span></button>
+</header>
+<div class="mobile-menu" hidden>
+  <a href="#mini-movie">Mini Movie</a>
+  <a href="#eybl">EYBL</a>
+  <a href="#events">Events</a>
+  <a href="#turkish-party">Turkish Party</a>
+  <a href="#bio">Bio</a>
+  <a href="#contact">Contact</a>
+  <a class="ig-link" href="#" target="_blank" rel="noopener">Instagram</a>
+</div>
+
+<main id="top">
+
+  <section class="hero">
+    <video class="hero-bg" muted loop playsinline autoplay preload="metadata" poster="media/lanciano-1.jpg">
+      <source src="media/lanciano-1.mp4" type="video/mp4">
+    </video>
+    <div class="hero-shade"></div>
+    <div class="hero-text">
+      <p class="eyebrow">Sports &amp; Events</p>
+      <h1>Stories told after dark.</h1>
+      <a class="btn" href="#mini-movie">Watch the mini movie</a>
+    </div>
+  </section>
+
+  <section id="mini-movie" class="section feature">
+    <p class="eyebrow">Featured</p>
+    <h2 class="mm-title"></h2>
+    <p class="sub mm-intro"></p>
+    <div class="chapters"></div>
+    <button class="btn play-all">&#9654;&nbsp; Play the full story</button>
+  </section>
+
+  <section id="eybl" class="section">
+    <h2>EYBL</h2>
+    <p class="sub">Click to watch videos</p>
+    <div class="grid" data-list="eybl"></div>
+  </section>
+
+  <section id="events" class="section">
+    <h2>Events</h2>
+    <p class="sub">Click to watch videos</p>
+    <div class="grid five" data-list="events"></div>
+  </section>
+
+  <section id="turkish-party" class="section">
+    <h2 class="tp-title"></h2>
+    <p class="sub">Video &amp; photo coverage</p>
+    <div class="grid single" data-list="turkish"></div>
+    <div class="photos"></div>
+  </section>
+
+  <section id="bio" class="section bio">
+    <img class="bio-logo" src="assets/logo-600.png" alt="">
+    <div>
+      <h2>Bio</h2>
+      <p>Midnight Collective is a videographer working in sports and live events. From full-game mini movies and player features to interviews and event aftermovies, every edit is built around the story of the moment: the build-up, the turning point, the release.</p>
+      <p>Available for teams, clubs, brands and event organisers.</p>
+    </div>
+  </section>
+
+  <section id="contact" class="section contact">
+    <h2>Contact</h2>
+    <p class="sub">Let's work together.</p>
+    <div class="contact-links">
+      <a class="btn email-link" href="#" hidden>Email me</a>
+      <a class="btn ghost ig-link" href="#" target="_blank" rel="noopener">Message on Instagram</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <span>&copy; <span class="year"></span> Midnight Collective</span>
+  <a href="#top" class="to-top" aria-label="Back to top">&uarr;</a>
+</footer>
+
+<div class="player" hidden>
+  <button class="player-close" aria-label="Close">&times;</button>
+  <div class="player-stage">
+    <video controls playsinline></video>
+  </div>
+  <div class="player-bar">
+    <span class="player-title"></span>
+    <span class="player-nav">
+      <button class="player-prev" aria-label="Previous">&larr;</button>
+      <button class="player-next" aria-label="Next">&rarr;</button>
+    </span>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
