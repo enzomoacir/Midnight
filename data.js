@@ -6,7 +6,11 @@
 */
 
 window.SITE = {
-  instagram: "https://www.instagram.com/",
+  instagram: [
+    { handle: "mdnt.collective", url: "https://www.instagram.com/mdnt.collective/" },
+    { handle: "enzo.blur",       url: "https://www.instagram.com/enzo.blur/" }
+  ],
+  phone: "+41 78 333 29 73",
   email: "",
 
   miniMovie: {

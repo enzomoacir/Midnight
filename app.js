@@ -5,8 +5,23 @@
   var canHover = window.matchMedia("(hover: hover)").matches;
 
   /* ---------- links ---------- */
-  $$(".ig-link").forEach(function (a) { a.href = S.instagram; });
-  if (S.email) { var em = $(".email-link"); em.href = "mailto:" + S.email; em.hidden = false; }
+  var igs = S.instagram || [];
+  $$(".ig-link").forEach(function (a) { if (igs[0]) a.href = igs[0].url; });
+  var cl = $(".contact-links");
+  function addBtn(href, text, ghost, ext) {
+    var a = document.createElement("a");
+    a.className = "btn" + (ghost ? " ghost" : "");
+    a.href = href; a.textContent = text;
+    if (ext) { a.target = "_blank"; a.rel = "noopener"; }
+    cl.appendChild(a);
+  }
+  if (S.phone) {
+    var digits = S.phone.replace(/[^0-9]/g, "");
+    addBtn("https://wa.me/" + digits, "WhatsApp " + S.phone, false, true);
+    addBtn("tel:+" + digits, "Call", true);
+  }
+  if (S.email) addBtn("mailto:" + S.email, "Email", true);
+  igs.forEach(function (ig) { addBtn(ig.url, "@" + ig.handle, true, true); });
   $(".year").textContent = new Date().getFullYear();
 
   /* ---------- cards ---------- */
