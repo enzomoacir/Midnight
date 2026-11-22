@@ -1,4 +1,24 @@
 (function () {
+  /* intro: once per visit, tap/click/key to skip */
+  var intro = document.querySelector(".intro");
+  if (intro && getComputedStyle(intro).display !== "none") {
+    document.body.style.overflow = "hidden";
+    var ended = false;
+    var finish = function () {
+      if (ended) return; ended = true;
+      intro.classList.add("done");
+      document.body.style.overflow = "";
+      setTimeout(function () { intro.remove(); }, 400);
+    };
+    try { sessionStorage.setItem("mc-intro", "1"); } catch (e) {}
+    intro.addEventListener("click", finish);
+    document.addEventListener("keydown", finish, { once: true });
+    setTimeout(function () { intro.classList.add("reveal"); }, 2250);
+    setTimeout(finish, 2950);
+  } else if (intro) { intro.remove(); }
+})();
+
+(function () {
   var S = window.SITE;
   var $ = function (q, el) { return (el || document).querySelector(q); };
   var $$ = function (q, el) { return Array.prototype.slice.call((el || document).querySelectorAll(q)); };
