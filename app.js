@@ -7,22 +7,37 @@ window.addEventListener("pageshow", toTop);
 (function () {
   /* intro: once per visit, tap/click/key to skip */
   var intro = document.querySelector(".intro");
-  if (intro && getComputedStyle(intro).display !== "none") {
-    document.body.style.overflow = "hidden";
-    var ended = false;
-    var finish = function () {
-      if (ended) return; ended = true;
-      intro.classList.add("done");
-      toTop();
-      document.body.style.overflow = "";
-      setTimeout(function () { intro.remove(); }, 400);
-    };
-    try { sessionStorage.setItem("mc-intro", "1"); } catch (e) {}
-    intro.addEventListener("click", finish);
-    document.addEventListener("keydown", finish, { once: true });
-    setTimeout(function () { toTop(); intro.classList.add("reveal"); }, 2250);
-    setTimeout(finish, 2950);
-  } else if (intro) { intro.remove(); }
+  if (!intro) return;
+  if (getComputedStyle(intro).display === "none") { intro.remove(); return; }
+  document.body.style.overflow = "hidden";
+  var ended = false, timers = [];
+  var tc = intro.querySelector(".intro-tc"), t0 = performance.now(), raf;
+  (function tick() {
+    var ms = performance.now() - t0, f = Math.floor(ms / 1000 * 24);
+    var pad = function (n) { return String(n).padStart(2, "0"); };
+    tc.textContent = "00:00:" + pad(Math.floor(f / 24)) + ":" + pad(f % 24);
+    raf = requestAnimationFrame(tick);
+  })();
+  function reveal() {
+    toTop();
+    intro.classList.add("reveal");
+    document.body.classList.add("settle");
+    document.body.style.overflow = "";
+  }
+  function finish() {
+    if (ended) return; ended = true;
+    timers.forEach(clearTimeout);
+    cancelAnimationFrame(raf);
+    if (!intro.classList.contains("reveal")) reveal();
+    intro.classList.add("done");
+    toTop();
+    setTimeout(function () { intro.remove(); document.body.classList.remove("settle"); }, 1100);
+  }
+  try { sessionStorage.setItem("mc-intro", "1"); } catch (e) {}
+  intro.addEventListener("click", finish);
+  document.addEventListener("keydown", finish, { once: true });
+  timers.push(setTimeout(reveal, 3180));
+  timers.push(setTimeout(finish, 4000));
 })();
 
 (function () {
