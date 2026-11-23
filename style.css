@@ -95,7 +95,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .player{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.96);display:flex;flex-direction:column}
 .player[hidden]{display:none}
 .player-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:56px 16px 8px;min-height:0}
-.player video{max-width:100%;max-height:100%;width:auto;height:100%;background:#000}
+.player video{display:block;width:auto;height:auto;max-width:100%;max-height:calc(100vh - 150px);max-height:calc(100dvh - 150px);min-width:200px;min-height:200px;background:#000}
 .player-close{position:absolute;top:10px;right:16px;font-size:40px;line-height:1;color:#ddd;z-index:2;padding:4px 10px}
 .player-bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 24px 20px;color:#ddd;font-size:15px}
 .player-nav button{font-size:22px;padding:4px 14px;color:#ddd}

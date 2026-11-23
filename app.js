@@ -42,6 +42,11 @@ window.addEventListener("pageshow", toTop);
 
 (function () {
   var S = window.SITE;
+  /* phones and slow connections get the lighter 720p version of each video */
+  var conn = navigator.connection || {};
+  var LIGHT = window.matchMedia("(max-width: 900px)").matches || conn.saveData || /(^|-)2g$/.test(conn.effectiveType || "");
+  function vsrc(file, light) { return "media/" + file + ((light === undefined ? LIGHT : light) ? "-m" : "") + ".mp4"; }
+  function tryPlay(v) { var p = v.play(); if (p && p.catch) p.catch(function () {}); }
   var $ = function (q, el) { return (el || document).querySelector(q); };
   var $$ = function (q, el) { return Array.prototype.slice.call((el || document).querySelectorAll(q)); };
   var canHover = window.matchMedia("(hover: hover)").matches;
@@ -104,7 +109,7 @@ window.addEventListener("pageshow", toTop);
         if (!v) {
           v = document.createElement("video");
           v.muted = true; v.loop = true; v.playsInline = true; v.preload = "auto";
-          v.src = "media/" + item.file + ".mp4";
+          v.src = vsrc(item.file);
           $(".thumb", el).insertBefore(v, $(".play", el));
         }
         var p = v.play(); if (p && p.catch) p.catch(function () {});
@@ -130,7 +135,7 @@ window.addEventListener("pageshow", toTop);
     el.className = "show";
     el.tabIndex = 0;
     el.setAttribute("role", "button");
-    el.innerHTML = '<video muted loop playsinline autoplay preload="metadata" poster="media/' + it.file + '.jpg" src="media/' + it.file + '.mp4"></video>' +
+    el.innerHTML = '<video muted loop playsinline autoplay preload="metadata" poster="media/' + it.file + '.jpg" src="' + vsrc(it.file, true) + '"></video>' +
       '<span class="show-text"><span class="eyebrow">Featured</span><span class="show-title"></span><span class="show-cta">&#9654;&nbsp; Watch with sound</span></span>';
     $(".show-title", el).textContent = it.title;
     el.addEventListener("click", function () { openPlayer(S.featured, i); });
@@ -248,7 +253,10 @@ window.addEventListener("pageshow", toTop);
       return;
     }
     pv.poster = "media/" + it.file + ".jpg";
-    pv.src = "media/" + it.file + ".mp4";
+    pv.dataset.file = it.file;
+    pv.dataset.light = LIGHT ? "1" : "0";
+    pv.dataset.retried = "";
+    pv.src = vsrc(it.file);
     var label = it.title;
     if (cur === mm.chapters) label = mm.title + " | Chapter " + (pos + 1) + " of " + cur.length;
     ptitle.textContent = label;
@@ -273,6 +281,13 @@ window.addEventListener("pageshow", toTop);
     document.body.style.overflow = "";
     if (lastFocus) lastFocus.focus();
   }
+  pv.addEventListener("error", function () {
+    /* if one version fails to load, switch to the other one */
+    if (!pv.dataset.file || pv.dataset.retried) return;
+    pv.dataset.retried = "1";
+    pv.src = vsrc(pv.dataset.file, pv.dataset.light !== "1");
+    tryPlay(pv);
+  });
   pv.addEventListener("ended", function () {
     if (auto && pos < cur.length - 1) { pos++; load(); }
   });
