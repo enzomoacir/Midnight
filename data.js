@@ -16,7 +16,7 @@ window.SITE = {
   /* "Worked with" strip under the featured videos. Add, remove or reorder names here. */
   workedWith: [
     "Nassau Beach Ibiza", "Dune Bar", "Swag Ibiza", "Aya Nights", "GECE Budapest", "Double Shot",
-    "Michael Jackson Show", "EYBL", "USK Praha", "Avangard Kiev", "MZT Skopje",
+    "EYBL", "USK Praha", "Avangard Kiev", "MZT Skopje",
     "Zaza Pachulia Academy", "Basket Lanciano", "B-Fit Calisthenics"
   ],
 
