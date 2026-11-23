@@ -61,7 +61,8 @@ window.SITE = {
         { file: "turkish-party",      title: "Aya Nights | Aftermovie" },
         { file: "event-aya-budapest", title: "Aya Night Budapest", wide: true }
       ],
-      photos: []
+      /* photos: first two are shown wide, the rest in a row underneath */
+      photos: ["photos/aya-01.jpg", "photos/aya-02.jpg", "photos/aya-03.jpg", "photos/aya-04.jpg", "photos/aya-05.jpg"]
     },
     {
       title: "Swag Ibiza",

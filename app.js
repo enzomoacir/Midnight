@@ -166,15 +166,23 @@ window.addEventListener("pageshow", toTop);
       ev.videos.forEach(function (it, i) { g.appendChild(card(it, ev.videos, i)); });
       wrap.appendChild(g);
       if (ev.photos && ev.photos.length) {
-        var ph = document.createElement("div");
-        ph.className = "photos";
-        ev.photos.forEach(function (src) {
-          var im = document.createElement("img");
-          im.loading = "lazy"; im.src = src; im.alt = ev.title;
-          im.addEventListener("click", function () { window.open(src, "_blank"); });
-          ph.appendChild(im);
+        var items = ev.photos.map(function (src, i) {
+          return { image: src, title: ev.title + " | Photo " + (i + 1) + " of " + ev.photos.length };
         });
-        wrap.appendChild(ph);
+        var gal = document.createElement("div");
+        gal.className = "gallery";
+        ev.photos.forEach(function (src, i) {
+          var b = document.createElement("button");
+          b.className = "shot" + (i < 2 ? " big" : "");
+          b.setAttribute("aria-label", "View photo " + (i + 1));
+          var im = document.createElement("img");
+          im.loading = "lazy"; im.alt = ev.title + " photo " + (i + 1);
+          im.src = src.replace(/\.jpg$/, "-sm.jpg");
+          b.appendChild(im);
+          b.addEventListener("click", function () { openPlayer(items, i); });
+          gal.appendChild(b);
+        });
+        wrap.insertBefore(gal, g);
       }
       box.appendChild(wrap);
     });
@@ -192,6 +200,17 @@ window.addEventListener("pageshow", toTop);
   function load() {
     var it = cur[pos];
     clearFrame();
+    if (it.image) {
+      pv.pause(); pv.removeAttribute("src"); pv.removeAttribute("poster"); pv.load();
+      frame = document.createElement("img");
+      frame.src = it.image; frame.alt = it.title; frame.className = "player-photo";
+      stage.classList.add("is-embed");
+      stage.appendChild(frame);
+      ptitle.textContent = it.title;
+      prevB.disabled = pos === 0;
+      nextB.disabled = pos === cur.length - 1;
+      return;
+    }
     if (it.instagram) {
       pv.pause(); pv.removeAttribute("src"); pv.removeAttribute("poster"); pv.load();
       frame = document.createElement("iframe");
