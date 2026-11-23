@@ -83,7 +83,8 @@ window.addEventListener("pageshow", toTop);
       $(".embed-title", el).textContent = item.title;
     } else {
       el.innerHTML =
-        '<div class="thumb"><img loading="lazy" alt="" src="media/' + item.file + '.jpg">' +
+        '<div class="thumb"><img loading="lazy" alt="" src="media/' + item.file + (item.sideways ? '-cover' : '') + '.jpg">' +
+        (item.sideways ? '<span class="turn">&#8635; Turn your phone</span>' : '') +
         '<span class="play"></span></div>';
     }
     var cap = document.createElement("span");
@@ -92,7 +93,7 @@ window.addEventListener("pageshow", toTop);
     el.appendChild(cap);
     el.addEventListener("click", function () { openPlayer(list, idx); });
     el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openPlayer(list, idx); } });
-    if (canHover && item.file) addPreview(el, item);
+    if (canHover && item.file && !item.sideways) addPreview(el, item);
     return el;
   }
 

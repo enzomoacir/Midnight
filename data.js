@@ -23,8 +23,8 @@ window.SITE = {
     title: "Vibas Basket vs Uni Lanciano Game | Mini Movie",
     intro: "One game, told in three chapters. Watch it in order.",
     chapters: [
-      { file: "lanciano-2", title: "Chapter 1" },
-      { file: "lanciano-3", title: "Chapter 2" },
+      { file: "lanciano-2", title: "Chapter 1", sideways: true },
+      { file: "lanciano-3", title: "Chapter 2", sideways: true },
       { file: "lanciano-1", title: "Chapter 3" }
     ]
   },
@@ -33,11 +33,11 @@ window.SITE = {
     { file: "eybl-coach-perry", title: "Coach Perry | EYBL Interview" },
     { file: "eybl-cska",        title: "CSKA | EYBL" },
     { file: "eybl-kristof",     title: "Kristof | EYBL Player Feature" },
-    { file: "eybl-rotate-zpa",  title: "Zaza Pachulia Academy Game Winner" },
-    { file: "eybl-luka-laslo",  title: "Luca Laslo MZT Skopje" },
-    { file: "eybl-4k-collab",   title: "USK Praha Shoot" },
-    { file: "eybl-24-ukraina",  title: "Yehor Paliukh Avangard Kiev" },
-    { file: "eybl-oca-lob",     title: "Oscar Mukendi Lob" }
+    { file: "eybl-rotate-zpa",  title: "Zaza Pachulia Academy Game Winner", sideways: true },
+    { file: "eybl-luka-laslo",  title: "Luca Laslo MZT Skopje", sideways: true },
+    { file: "eybl-4k-collab",   title: "USK Praha Shoot", sideways: true },
+    { file: "eybl-24-ukraina",  title: "Yehor Paliukh Avangard Kiev", sideways: true },
+    { file: "eybl-oca-lob",     title: "Oscar Mukendi Lob", sideways: true }
   ],
 
   /* Extra lines under Sports (after the clips above). "instagram" = a reel/post link that plays inside the site. */
