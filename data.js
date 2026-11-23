@@ -53,6 +53,11 @@ window.SITE = {
       photos: []
     },
     {
+      title: "Michael Jackson Show Ibiza",
+      videos: [ { file: "event-mj-show", title: "Yordani Ogando | Michael Jackson Show Ibiza" } ],
+      photos: []
+    },
+    {
       title: "Dune Bar",
       videos: [
         { file: "event-dune-1", title: "Dune Bar" },
