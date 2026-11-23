@@ -57,7 +57,10 @@ window.SITE = {
   events: [
     {
       title: "Aya Nights",
-      videos: [ { file: "turkish-party", title: "Aya Nights | Aftermovie" } ],
+      videos: [
+        { file: "turkish-party",      title: "Aya Nights | Aftermovie" },
+        { file: "event-aya-budapest", title: "Aya Night Budapest", wide: true }
+      ],
       photos: []
     },
     {
