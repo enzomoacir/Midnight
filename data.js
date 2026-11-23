@@ -35,8 +35,8 @@ window.SITE = {
     { file: "eybl-kristof",     title: "Kristof | EYBL Player Feature" },
     { file: "eybl-rotate-zpa",  title: "Zaza Pachulia Academy Game Winner" },
     { file: "eybl-luka-laslo",  title: "Luca Laslo MZT Skopje" },
-    { file: "eybl-4k-collab",   title: "EYBL Collab" },
-    { file: "eybl-24-ukraina",  title: "#24 Ukraina | EYBL" },
+    { file: "eybl-4k-collab",   title: "USK Praha Shoot" },
+    { file: "eybl-24-ukraina",  title: "Yehor Paliukh Avangard Kiev" },
     { file: "eybl-oca-lob",     title: "Lob | EYBL" }
   ],
 
