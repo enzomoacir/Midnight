@@ -69,7 +69,7 @@ window.addEventListener("pageshow", toTop);
   /* ---------- cards ---------- */
   function card(item, list, idx, extraClass) {
     var el = document.createElement("div");
-    el.className = "card " + (extraClass || "");
+    el.className = "card " + (extraClass || "") + (item.wide ? " wide" : "");
     el.tabIndex = 0;
     el.setAttribute("role", "button");
     el.setAttribute("aria-label", "Play " + item.title);

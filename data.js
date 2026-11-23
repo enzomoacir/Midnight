@@ -46,6 +46,7 @@ window.SITE = {
       title: "B-Fit Calisthenics Event",
       videos: [
         { instagram: "https://www.instagram.com/reel/DZZpWYIqW9c/", poster: "sport-bfit-vlog", title: "B-Fit Calisthenics Event | Full Vlog", tag: "Full vlog · 10 min" },
+        { file: "sport-bfit-final", title: "B-Fit Calisthenics Event | Final Edit", wide: true },
         { file: "sport-bfit-2", title: "B-Fit Calisthenics Event | Teaser" }
       ],
       photos: []
