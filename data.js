@@ -15,8 +15,8 @@ window.SITE = {
 
   /* "Worked with" strip under the featured videos. Add, remove or reorder names here. */
   workedWith: [
-    "Dune Bar", "Swag Ibiza", "Aya Nights", "GECE Budapest", "Double Shot",
-    "Michael Jackson Show Ibiza", "EYBL", "USK Praha", "Avangard Kiev", "MZT Skopje",
+    "Nassau Beach Ibiza", "Dune Bar", "Swag Ibiza", "Aya Nights", "GECE Budapest", "Double Shot",
+    "Michael Jackson Show", "EYBL", "USK Praha", "Avangard Kiev", "MZT Skopje",
     "Zaza Pachulia Academy", "Basket Lanciano", "B-Fit Calisthenics"
   ],
 
@@ -77,8 +77,8 @@ window.SITE = {
       photos: []
     },
     {
-      title: "Michael Jackson Show Ibiza",
-      videos: [ { file: "event-mj-show", title: "Yordani Ogando | Michael Jackson Show Ibiza" } ],
+      title: "Michael Jackson Show | Nassau Beach Ibiza",
+      videos: [ { file: "event-mj-show", title: "Yordani Ogando | Michael Jackson Show at Nassau Beach Ibiza" } ],
       photos: []
     },
     {
