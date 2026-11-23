@@ -37,7 +37,7 @@ window.SITE = {
     { file: "eybl-luka-laslo",  title: "Luca Laslo MZT Skopje" },
     { file: "eybl-4k-collab",   title: "USK Praha Shoot" },
     { file: "eybl-24-ukraina",  title: "Yehor Paliukh Avangard Kiev" },
-    { file: "eybl-oca-lob",     title: "Lob | EYBL" }
+    { file: "eybl-oca-lob",     title: "Oscar Mukendi Lob" }
   ],
 
   /* Extra lines under Sports (after the clips above). "instagram" = a reel/post link that plays inside the site. */
