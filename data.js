@@ -33,8 +33,8 @@ window.SITE = {
     { file: "eybl-coach-perry", title: "Coach Perry | EYBL Interview" },
     { file: "eybl-cska",        title: "CSKA | EYBL" },
     { file: "eybl-kristof",     title: "Kristof | EYBL Player Feature" },
-    { file: "eybl-rotate-zpa",  title: "Zpa | EYBL" },
-    { file: "eybl-luka-laslo",  title: "Luka Laslo | Layup" },
+    { file: "eybl-rotate-zpa",  title: "Zaza Pachulia Academy Game Winner" },
+    { file: "eybl-luka-laslo",  title: "Luca Laslo MZT Skopje" },
     { file: "eybl-4k-collab",   title: "EYBL Collab" },
     { file: "eybl-24-ukraina",  title: "#24 Ukraina | EYBL" },
     { file: "eybl-oca-lob",     title: "Lob | EYBL" }
