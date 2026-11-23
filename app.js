@@ -138,6 +138,22 @@ window.addEventListener("pageshow", toTop);
     sc.appendChild(el);
   });
 
+  /* worked with strip */
+  var track = $(".marquee-track");
+  var names = S.workedWith || [];
+  if (!names.length) { $(".worked").remove(); }
+  for (var r = 0; r < 2; r++) {
+    var grp = document.createElement("div");
+    grp.className = "marquee-group";
+    if (r) grp.setAttribute("aria-hidden", "true");
+    names.forEach(function (n) {
+      var sp = document.createElement("span");
+      sp.className = "mark"; sp.textContent = n;
+      grp.appendChild(sp);
+    });
+    track.appendChild(grp);
+  }
+
   /* mini movie */
   var mm = S.miniMovie;
   $(".mm-title").textContent = mm.title;

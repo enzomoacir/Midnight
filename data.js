@@ -13,6 +13,13 @@ window.SITE = {
   phone: "+41 78 333 29 73",
   email: "",
 
+  /* "Worked with" strip under the featured videos. Add, remove or reorder names here. */
+  workedWith: [
+    "Dune Bar", "Swag Ibiza", "Aya Nights", "GECE Budapest", "Double Shot",
+    "Michael Jackson Show Ibiza", "EYBL", "USK Praha", "Avangard Kiev", "MZT Skopje",
+    "Zaza Pachulia Academy", "Basket Lanciano", "B-Fit Calisthenics"
+  ],
+
   /* The two pieces shown first when the site opens */
   featured: [
     { file: "lanciano-1",   title: "Vibas vs Lanciano | Final Chapter" },
