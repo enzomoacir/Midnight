@@ -73,16 +73,26 @@ window.addEventListener("pageshow", toTop);
     el.tabIndex = 0;
     el.setAttribute("role", "button");
     el.setAttribute("aria-label", "Play " + item.title);
-    el.innerHTML =
-      '<div class="thumb"><img loading="lazy" alt="" src="media/' + item.file + '.jpg">' +
-      '<span class="play"></span></div>';
+    if (item.instagram) {
+      el.className += " embed-card";
+      el.innerHTML =
+        '<div class="thumb">' + (item.poster ? '<img loading="lazy" alt="" src="media/' + item.poster + '.jpg">' : '<span class="embed-bg"></span>') +
+        '<span class="embed-info"><span class="eyebrow">' + (item.tag || "Watch") + '</span>' +
+        '<span class="embed-title"></span><span class="embed-src">Plays from Instagram</span></span>' +
+        '<span class="play"></span></div>';
+      $(".embed-title", el).textContent = item.title;
+    } else {
+      el.innerHTML =
+        '<div class="thumb"><img loading="lazy" alt="" src="media/' + item.file + '.jpg">' +
+        '<span class="play"></span></div>';
+    }
     var cap = document.createElement("span");
     cap.className = "cap";
     cap.textContent = item.title;
     el.appendChild(cap);
     el.addEventListener("click", function () { openPlayer(list, idx); });
     el.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openPlayer(list, idx); } });
-    if (canHover) addPreview(el, item);
+    if (canHover && item.file) addPreview(el, item);
     return el;
   }
 
@@ -144,38 +154,63 @@ window.addEventListener("pageshow", toTop);
   $(".play-all").addEventListener("click", function () { openPlayer(mm.chapters, 0, true); });
 
   fill('[data-list="sports"]', S.sports);
-  var lines = $(".event-lines");
-  S.events.forEach(function (ev) {
-    var wrap = document.createElement("div");
-    wrap.className = "event-line";
-    var h = document.createElement("h3");
-    h.textContent = ev.title;
-    wrap.appendChild(h);
-    var g = document.createElement("div");
-    g.className = "grid";
-    ev.videos.forEach(function (it, i) { g.appendChild(card(it, ev.videos, i)); });
-    wrap.appendChild(g);
-    if (ev.photos && ev.photos.length) {
-      var ph = document.createElement("div");
-      ph.className = "photos";
-      ev.photos.forEach(function (src) {
-        var im = document.createElement("img");
-        im.loading = "lazy"; im.src = src; im.alt = ev.title;
-        im.addEventListener("click", function () { window.open(src, "_blank"); });
-        ph.appendChild(im);
-      });
-      wrap.appendChild(ph);
-    }
-    lines.appendChild(wrap);
-  });
+  function renderLines(box, list) {
+    (list || []).forEach(function (ev) {
+      var wrap = document.createElement("div");
+      wrap.className = "event-line";
+      var h = document.createElement("h3");
+      h.textContent = ev.title;
+      wrap.appendChild(h);
+      var g = document.createElement("div");
+      g.className = "grid";
+      ev.videos.forEach(function (it, i) { g.appendChild(card(it, ev.videos, i)); });
+      wrap.appendChild(g);
+      if (ev.photos && ev.photos.length) {
+        var ph = document.createElement("div");
+        ph.className = "photos";
+        ev.photos.forEach(function (src) {
+          var im = document.createElement("img");
+          im.loading = "lazy"; im.src = src; im.alt = ev.title;
+          im.addEventListener("click", function () { window.open(src, "_blank"); });
+          ph.appendChild(im);
+        });
+        wrap.appendChild(ph);
+      }
+      box.appendChild(wrap);
+    });
+  }
+  renderLines($(".event-lines"), S.events);
+  renderLines($(".sport-lines"), S.sportsLines);
 
   /* ---------- player ---------- */
   var player = $(".player"), pv = $("video", player), ptitle = $(".player-title");
   var prevB = $(".player-prev"), nextB = $(".player-next");
   var cur = null, pos = 0, auto = false, lastFocus = null;
 
+  var stage = $(".player-stage"), frame = null;
+  function clearFrame() { if (frame) { frame.remove(); frame = null; } stage.classList.remove("is-embed"); }
   function load() {
     var it = cur[pos];
+    clearFrame();
+    if (it.instagram) {
+      pv.pause(); pv.removeAttribute("src"); pv.removeAttribute("poster"); pv.load();
+      frame = document.createElement("iframe");
+      frame.src = it.instagram.replace(/\?.*$/, "").replace(/\/?$/, "/") + "embed/";
+      frame.setAttribute("allow", "autoplay; encrypted-media; fullscreen; picture-in-picture");
+      frame.setAttribute("allowfullscreen", "");
+      frame.setAttribute("scrolling", "no");
+      frame.title = it.title;
+      stage.classList.add("is-embed");
+      stage.appendChild(frame);
+      ptitle.textContent = it.title;
+      var ext = document.createElement("a");
+      ext.href = it.instagram; ext.target = "_blank"; ext.rel = "noopener";
+      ext.className = "player-ext"; ext.textContent = "Open on Instagram \u2197";
+      ptitle.appendChild(ext);
+      prevB.disabled = pos === 0;
+      nextB.disabled = pos === cur.length - 1;
+      return;
+    }
     pv.poster = "media/" + it.file + ".jpg";
     pv.src = "media/" + it.file + ".mp4";
     var label = it.title;
@@ -197,6 +232,7 @@ window.addEventListener("pageshow", toTop);
   }
   function closePlayer() {
     pv.pause(); pv.removeAttribute("src"); pv.load();
+    clearFrame();
     player.hidden = true;
     document.body.style.overflow = "";
     if (lastFocus) lastFocus.focus();

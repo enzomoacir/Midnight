@@ -40,6 +40,18 @@ window.SITE = {
     { file: "eybl-oca-lob",     title: "Lob | EYBL" }
   ],
 
+  /* Extra lines under Sports (after the clips above). "instagram" = a reel/post link that plays inside the site. */
+  sportsLines: [
+    {
+      title: "B-Fit Calisthenics Event",
+      videos: [
+        { instagram: "https://www.instagram.com/reel/DZZpWYIqW9c/", poster: "sport-bfit-vlog", title: "B-Fit Calisthenics Event | Full Vlog", tag: "Full vlog · 10 min" },
+        { file: "sport-bfit-2", title: "B-Fit Calisthenics Event | Teaser" }
+      ],
+      photos: []
+    }
+  ],
+
   /* Each event is its own line under Events. Add photos as "photos/name.jpg" in its photos list. */
   events: [
     {
