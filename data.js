@@ -44,7 +44,7 @@ window.SITE = {
 
   /* Sports > Short Form: quick highlight clips */
   sportsShort: [
-    { file: "eybl-kristof",     title: "Kristof | EYBL Player Feature" },
+    { file: "eybl-kristof",     title: "Lukacs Norbert UBT (HUN) Workout" },
     { file: "eybl-rotate-zpa",  title: "Zaza Pachulia Academy (GEO) Game Winner", sideways: true },
     { file: "eybl-luka-laslo",  title: "Luca Laslo MZT Skopje (MKD)", sideways: true },
     { file: "eybl-4k-collab",   title: "USK Praha (CZE) Shoot", sideways: true },
