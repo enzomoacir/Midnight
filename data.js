@@ -50,7 +50,7 @@ window.SITE = {
     { file: "eybl-4k-collab",   title: "USK Praha Shoot", sideways: true },
     { file: "eybl-24-ukraina",  title: "Yehor Paliukh Avangard Kiev", sideways: true },
     { file: "eybl-oca-lob",     title: "Oscar Mukendi Lob", sideways: true },
-    { file: "eybl-raph-kirschner", title: "Raphael Kirschner Layup" }
+    { file: "eybl-raph-kirschner", title: "Raphael Kirschner Hard Work Knox Talent (GER)" }
   ],
 
   /* Extra story lines under Sports > Stories. "instagram" = a reel/post link that plays inside the site. */
