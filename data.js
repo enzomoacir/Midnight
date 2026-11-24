@@ -36,10 +36,15 @@ window.SITE = {
     ]
   },
 
-  sports: [
+  /* Sports > Stories: story-driven pieces (shown after the mini movie) */
+  sportsStories: [
     { file: "eybl-coach-perry", title: "Coach Perry | EYBL Interview" },
     { file: "eybl-cska",        title: "CSKA | EYBL" },
-    { file: "eybl-kristof",     title: "Kristof | EYBL Player Feature" },
+    { file: "eybl-kristof",     title: "Kristof | EYBL Player Feature" }
+  ],
+
+  /* Sports > Short Form: quick highlight clips */
+  sportsShort: [
     { file: "eybl-rotate-zpa",  title: "Zaza Pachulia Academy Game Winner", sideways: true },
     { file: "eybl-luka-laslo",  title: "Luca Laslo MZT Skopje", sideways: true },
     { file: "eybl-4k-collab",   title: "USK Praha Shoot", sideways: true },
@@ -47,7 +52,7 @@ window.SITE = {
     { file: "eybl-oca-lob",     title: "Oscar Mukendi Lob", sideways: true }
   ],
 
-  /* Extra lines under Sports (after the clips above). "instagram" = a reel/post link that plays inside the site. */
+  /* Extra story lines under Sports > Stories. "instagram" = a reel/post link that plays inside the site. */
   sportsLines: [
     {
       title: "B-Fit Calisthenics Event",

@@ -175,7 +175,8 @@ window.addEventListener("pageshow", toTop);
   });
   $(".play-all").addEventListener("click", function () { openPlayer(mm.chapters, 0, true); });
 
-  fill('[data-list="sports"]', S.sports);
+  fill('[data-list="stories"]', S.sportsStories);
+  fill('[data-list="short"]', S.sportsShort);
   function renderLines(box, list) {
     (list || []).forEach(function (ev) {
       var wrap = document.createElement("div");
