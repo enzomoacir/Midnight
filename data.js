@@ -36,7 +36,7 @@ window.SITE = {
     ]
   },
 
-  /* Sports > Stories: story-driven pieces (shown after the mini movie) */
+  /* Sports > Mini Films: story-driven pieces (shown after the mini movie) */
   sportsStories: [
     { file: "eybl-coach-perry", title: "Coach Perry | EYBL Interview" },
     { file: "eybl-cska",        title: "CSKA | EYBL" },
