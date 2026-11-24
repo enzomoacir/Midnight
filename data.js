@@ -45,10 +45,10 @@ window.SITE = {
   /* Sports > Short Form: quick highlight clips */
   sportsShort: [
     { file: "eybl-kristof",     title: "Kristof | EYBL Player Feature" },
-    { file: "eybl-rotate-zpa",  title: "Zaza Pachulia Academy Game Winner", sideways: true },
-    { file: "eybl-luka-laslo",  title: "Luca Laslo MZT Skopje", sideways: true },
-    { file: "eybl-4k-collab",   title: "USK Praha Shoot", sideways: true },
-    { file: "eybl-24-ukraina",  title: "Yehor Paliukh Avangard Kiev", sideways: true },
+    { file: "eybl-rotate-zpa",  title: "Zaza Pachulia Academy (GEO) Game Winner", sideways: true },
+    { file: "eybl-luka-laslo",  title: "Luca Laslo MZT Skopje (MKD)", sideways: true },
+    { file: "eybl-4k-collab",   title: "USK Praha (CZE) Shoot", sideways: true },
+    { file: "eybl-24-ukraina",  title: "Yehor Paliukh Avangard Kiev (UKR)", sideways: true },
     { file: "eybl-oca-lob",     title: "Oscar Mukendi Lob", sideways: true },
     { file: "eybl-raph-kirschner", title: "Raphael Kirschner Hard Work Knox Talent (GER)" },
     { file: "eybl-raph-kirschner-2", title: "Raphael Kirschner Hard Work Knox Talent (GER) | Part 2" }
